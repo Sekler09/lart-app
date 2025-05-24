@@ -5,9 +5,13 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": [
+    "svgr.d.ts",
     "next-env.d.ts",
     "next.config.js",
     "**/*.ts",
