@@ -14,7 +14,6 @@ import { ConfigModule } from '@nestjs/config';
     DatabaseModule,
     AuthModule,
     UsersModule,
-    // AccountModule,
   ],
   controllers: [],
   providers: [],
