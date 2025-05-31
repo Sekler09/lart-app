@@ -2,8 +2,6 @@ import {
   Body,
   Controller,
   Get,
-  HttpCode,
-  HttpStatus,
   Post,
   Query,
   Req,
@@ -46,7 +44,6 @@ export class AuthController {
   }
 
   @Post('/signin')
-  @HttpCode(HttpStatus.OK)
   async signIn(
     @Body() body: SignInDto,
     @Res({ passthrough: true }) res: Response,
@@ -58,14 +55,12 @@ export class AuthController {
   }
 
   @Post('/signout')
-  @HttpCode(HttpStatus.OK)
   @UseGuards(JwtAuthGuard)
   signOut(@Res({ passthrough: true }) res: Response): SignOutResponse {
     this.cookieService.clearToken(res);
   }
 
   @Get('/me')
-  @HttpCode(HttpStatus.OK)
   @UseGuards(JwtAuthGuard)
   getMe(@Req() req: Request): GetMeResponse {
     const { password, ...user } = req.user as User;
