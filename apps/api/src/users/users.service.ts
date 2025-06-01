@@ -18,7 +18,7 @@ export class UsersService {
     });
   }
 
-  async create(userDto: Omit<User, 'id' | 'createdAt' | 'updatedAt'>) {
+  async createUser(userDto: Omit<User, 'id' | 'createdAt' | 'updatedAt'>) {
     return await this.prisma.user.create({ data: userDto });
   }
 

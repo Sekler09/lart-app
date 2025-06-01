@@ -35,7 +35,7 @@ export class AuthService {
 
     const hash = await this.passwordService.getHash(password);
 
-    const newUser = await this.usersService.create({
+    const newUser = await this.usersService.createUser({
       email,
       password: hash,
       googleId: null,
