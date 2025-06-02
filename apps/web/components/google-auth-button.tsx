@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import Image from 'next/image';
 import GoogleIcon from '@/assets/icons/google.svg';
 
 interface GoogleAuthButtonProps {
@@ -15,7 +14,7 @@ const GoogleAuthButton: FC<GoogleAuthButtonProps> = ({ disabled, title }) => {
   return (
     <Button variant="outline" className="w-full" asChild disabled={disabled}>
       <Link href={disabled ? '#' : googleSignInUrl} aria-disabled={disabled}>
-        <GoogleIcon alt="Google Logo" height={20} width={20} className="mr-2" />
+        <GoogleIcon height={20} width={20} className="mr-2" />
         {title}
       </Link>
     </Button>
