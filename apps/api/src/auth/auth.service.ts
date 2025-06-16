@@ -28,9 +28,7 @@ export class AuthService {
     const user = await this.usersService.findByEmail(email);
 
     if (user) {
-      throw new BadRequestException({
-        username: 'User with such email already exists',
-      });
+      throw new BadRequestException('User with such email already exists');
     }
 
     const hash = await this.passwordService.getHash(password);
@@ -43,7 +41,7 @@ export class AuthService {
 
     const accessToken = await this.generateJwtToken(newUser.id, newUser.email);
 
-    return { accessToken, user };
+    return { accessToken, user: newUser };
   }
 
   async signIn({ email, password }: SignInDto) {
